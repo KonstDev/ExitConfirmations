@@ -1,0 +1,2 @@
+pytelegrambotapi
+firebase_admin
