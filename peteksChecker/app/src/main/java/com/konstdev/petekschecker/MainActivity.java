@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         FirebaseApp.initializeApp(this);
-        //FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         btn = findViewById(R.id.btn0);
         tv = findViewById(R.id.textView);
         editText = findViewById(R.id.etCode);
@@ -33,9 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        tv.setText(editText.getText());
         Intent intent = new Intent(this, ShowInfoActivity.class);
-        //String str  = String.valueOf(editText.getText());
         intent.putExtra("CONFIRMATION_CODE", String.valueOf(editText.getText()));
         startActivity(intent);
 

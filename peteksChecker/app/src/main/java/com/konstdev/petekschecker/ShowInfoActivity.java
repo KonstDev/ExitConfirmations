@@ -22,17 +22,14 @@ import java.util.Map;
 public class ShowInfoActivity extends AppCompatActivity implements View.OnClickListener {
     final String TAG = "logTag";
     TextView tv;
-    Button btn;
+     Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_info);
-
-        tv = findViewById(R.id.tvShow);
         btn = findViewById(R.id.button);
         btn.setOnClickListener(this);
-
-
+        TextView tvNames= findViewById(R.id.tvName), tvExitTime = findViewById(R.id.tvExitTime), tvReturnTime = findViewById(R.id.tvReturnTime), tvMadrich = findViewById(R.id.tvMadrich), tvGoingTo = findViewById(R.id.tvGoingTo);
         Intent intent = getIntent();
         String str = intent.getStringExtra("CONFIRMATION_CODE");
 
@@ -46,21 +43,19 @@ public class ShowInfoActivity extends AppCompatActivity implements View.OnClickL
                 QuerySnapshot querySnapshot = task.getResult();
                 for (QueryDocumentSnapshot document : querySnapshot) {
                     Map<String, Object> data = document.getData();
-                    //Log.d(TAG, "User data: " + data);
-                    //String a = String.valueOf(data);
-                    tv.setText(String.valueOf(data));
+                    tvNames.setText("Names: " + String.valueOf(data.get("StudentName")));
+                    tvExitTime.setText("Exit Time: " + String.valueOf(data.get("ExitTime")));
+                    tvReturnTime.setText("Return Time: " + String.valueOf(data.get("ReturnTime")));
+                    tvGoingTo.setText("Going to: " + String.valueOf(data.get("GoingTo")));
+                    tvMadrich.setText("Madrich: " + String.valueOf(data.get("MadrichName")));
                 }
             } else {
                 Log.d(TAG, "Error getting documents: ", task.getException());
             }
         });
-        if (tv.getText() == "BEBRA")
-            tv.setText("Error getting documents.");
         String a = String.valueOf(query.get());
         System.out.println(a);
-        //String result = String.valueOf(query);
         System.out.println(str);
-        //tv.setText(String.valueOf(query));
     }
 
     @Override
