@@ -17,11 +17,11 @@ GoingTo = ''
 
 @bot.message_handler(content_types=['text'])
 def start(message):
-    if message.text == 'Create new Petek':
+    if message.text == '/create':
         bot.send_message(message.from_user.id, "Type the names for the Petek")
         bot.register_next_step_handler(message, get_name)
     else:
-        bot.send_message(message.from_user.id, 'To create new Petek press the button.')
+        bot.send_message(message.from_user.id, 'To create new Petek type /create')
 
 
 def get_name(message):
