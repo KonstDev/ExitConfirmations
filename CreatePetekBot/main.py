@@ -65,5 +65,5 @@ def get_goingto(message):
 while 1:
     try:
         bot.polling()
-    except Exception
+    except Exception:
         print(Exception)
