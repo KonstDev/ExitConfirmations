@@ -1,2 +1,5 @@
 pytelegrambotapi
 firebase_admin
+Pillow
+qrcode
+#lo tkabel ta hultas
