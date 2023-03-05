@@ -63,4 +63,7 @@ def get_goingto(message):
 
 
 while 1:
-    bot.polling()
+    try:
+        bot.polling()
+    except Exception
+        print(Exception)
