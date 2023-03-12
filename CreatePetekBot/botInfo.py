@@ -1,1 +1,0 @@
-BOT_TELEBOT_TOKEN = ''
